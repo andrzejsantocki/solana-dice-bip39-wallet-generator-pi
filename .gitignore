@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.log
+.DS_Store
+Thumbs.db
+.hermes-tmp*/
+**/.hermes-tmp*/
+
