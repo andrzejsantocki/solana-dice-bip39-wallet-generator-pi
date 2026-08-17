@@ -1,6 +1,6 @@
 # Solana Dice BIP39 Wallet Generator — Raspberry Pi 64-bit
 
-[![tests](https://github.com/andrzejsantocki/wallet-local-dice-generator-pi/actions/workflows/tests.yml/badge.svg)](https://github.com/andrzejsantocki/wallet-local-dice-generator-pi/actions/workflows/tests.yml)
+[![tests](https://github.com/andrzejsantocki/solana-dice-bip39-wallet-generator-pi/actions/workflows/tests.yml/badge.svg)](https://github.com/andrzejsantocki/solana-dice-bip39-wallet-generator-pi/actions/workflows/tests.yml)
 
 ![Offline Solana Wallet Generator cover](assets/cover.png)
 
