@@ -4,7 +4,7 @@
 
 ![Offline Solana Wallet Generator cover](assets/cover.png)
 
-Offline Solana wallet generator from physical dice entropy, packaged for Raspberry Pi OS Lite 64-bit (`aarch64`) with Python 3.11 wheels.
+Public Raspberry Pi edition of the offline Solana dice/BIP39 wallet generator. It is packaged for Raspberry Pi OS Lite 64-bit (`aarch64`) with pinned Python 3.11 ARM64 wheels.
 
 ![CLI screenshot](assets/screenshot.svg)
 
@@ -43,7 +43,21 @@ The complete dice-roll transcript is secret key material, especially in hash-rol
 
 ## Setup and run
 
-On the air-gapped Raspberry Pi OS Lite 64-bit machine:
+Target machine:
+
+- Raspberry Pi 4/5 recommended.
+- Raspberry Pi OS Lite 64-bit (`aarch64` / `arm64`).
+- CPython 3.11.
+- Keyboard + local display preferred.
+
+Install OS prerequisites if needed:
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip
+```
+
+On the air-gapped Raspberry Pi:
 
 ```bash
 ./setup_env.sh
@@ -90,6 +104,13 @@ Setup is separate from wallet generation:
    - exact `pkgs/*.whl` allowlist
    - installed package versions
 
+Bundled Pi wheel set:
+
+- `mnemonic-0.21-py3-none-any.whl`
+- `pynacl-1.6.2-cp38-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl`
+- `cffi-2.1.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl`
+- `pycparser-3.0-py3-none-any.whl`
+
 ## Verification
 
 Run the built-in self-test before any wallet ceremony:
@@ -130,12 +151,13 @@ For higher assurance, compare the committed wheel hashes against independently d
 1. Fresh offline machine.
 2. Disable Wi-Fi/Bluetooth and swap.
 3. Install only from local `pkgs/` via `setup_env.sh`.
-4. Roll one physical d6 yourself, independently for every entry. If using multiple dice, do not assign permanent first/second pair roles to different dice.
-5. Do not retain dice transcript.
-6. Write mnemonic/passphrase on paper or steel only.
-7. Record derivation path and first address.
-8. Restore independently in Phantom/Solflare before funding.
-9. Send tiny test deposit first.
+4. Run `.venv/bin/python -I generate_wallet.py --self-test`.
+5. Roll one physical d6 yourself, independently for every entry. If using multiple dice, do not assign permanent first/second pair roles to different dice.
+6. Do not retain dice transcript.
+7. Write mnemonic/passphrase on paper or steel only.
+8. Record derivation path and first address.
+9. Restore independently in Phantom/Solflare before funding.
+10. Send tiny test deposit first.
 
 ## License
 
